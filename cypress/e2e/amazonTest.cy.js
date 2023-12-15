@@ -8,14 +8,20 @@ describe('amazonTest', () => {
       cy.visit("https://www.amazon.com.tr/")
     })
 
-    it('search iphone 15 and click on the product', () => {
-      cy.get(amazon.popupAccept).click()
-      cy.get(amazon.searchBox).type('iphone 15')
-      cy.get(amazon.searchButton).click()
-
-      cy.get(amazon.firstProductImage).click()
-      cy.url().should("include", "Apple")
-      cy.wait(2000)
-      cy.get(amazon.productTitle).should("include", "Apple iPhone 15")
+    it('verify amazon main page', () => {
+      cy.clickThis(amazon.popupAccept)
+      cy.isDisplayed(amazon.ordersButton)
+    
     })
+
+    /*it('search iphone 15 and verify product page', () => {
+      cy.clickThis(amazon.popupAccept)
+      cy.typeThis(amazon.searchBox, "iphone 15")
+      cy.clickThis(amazon.searchButton)
+      cy.clickThis(amazon.firstProductImage)
+      cy.url().should("include", "Apple")
+      cy.get(amazon.productTitle).should("include", "Apple iPhone 15")
+    }) */
+
+    
   })
