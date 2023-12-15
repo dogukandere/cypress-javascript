@@ -8,7 +8,7 @@ describe('amazonTest', () => {
       cy.visit("https://www.amazon.com.tr/")
     })
 
-    it('search iphone 15', () => {
+    it('search iphone 16', () => {
       cy.get(amazon.popupAccept).click()
       cy.get(amazon.searchBox).type('iphone 15')
       cy.get(amazon.searchButton).click()
