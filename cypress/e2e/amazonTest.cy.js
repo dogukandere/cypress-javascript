@@ -1,27 +1,28 @@
 /// <reference types="cypress" />
 
-import amazon from "../util/amazon"
+import { MainPage } from "../pages/mainPage"
+import { ProductPage } from "../pages/productPage";
 
-describe('amazonTest', () => {
+const mainPage = new MainPage();
+const productPage = new ProductPage();
 
-    beforeEach(() => {
-      cy.visit("https://www.amazon.com.tr/")
-    })
-
-    it('verify amazon main page', () => {
-      cy.clickThis(amazon.popupAccept)
-      cy.isDisplayed(amazon.ordersButton)
-    
-    })
-
-    /*it('search iphone 15 and verify product page', () => {
-      cy.clickThis(amazon.popupAccept)
-      cy.typeThis(amazon.searchBox, "iphone 15")
-      cy.clickThis(amazon.searchButton)
-      cy.clickThis(amazon.firstProductImage)
-      cy.url().should("include", "Apple")
-      cy.get(amazon.productTitle).should("include", "Apple iPhone 15")
-    }) */
-
-    
+describe("Amazon test", () => {
+  beforeEach(() => {
+    mainPage.visitMainUrl()
+    mainPage.clickPopupAcceptButton()
   })
+
+  it('verify amazon main page', () => {
+    mainPage.verifyAmazonLogo()
+    mainPage.verifyOrdersButton()
+    mainPage.verifyLoginButton()
+  })
+
+  it('search iphone 15 and verify product page', () => {
+    mainPage.typeProductName("iphone 15")
+    mainPage.clickSearchButton()
+    productPage.verifyProductPageUrl()
+    productPage.verifySearchedElement()
+  })
+})
+    
