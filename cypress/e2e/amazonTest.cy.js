@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import { MainPage } from "../pages/mainPage"
 import { ProductPage } from "../pages/productPage";
 
@@ -9,6 +7,7 @@ const productPage = new ProductPage();
 describe("Amazon test", () => {
   beforeEach(() => {
     mainPage.visitMainUrl()
+    mainPage.verifyProtocolAndHostName()
     mainPage.clickPopupAcceptButton()
   })
 
@@ -22,7 +21,9 @@ describe("Amazon test", () => {
     mainPage.typeProductName("iphone 15")
     mainPage.clickSearchButton()
     productPage.verifyProductPageUrl()
+    productPage.checkProductPageTitle("Amazon.com.tr : iphone 15")
     productPage.verifySearchedElement()
+    productPage.verifySortByButton()
   })
 })
     

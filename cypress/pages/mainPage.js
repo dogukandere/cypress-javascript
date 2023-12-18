@@ -10,6 +10,11 @@ export class MainPage {
         cy.visit("https://www.amazon.com.tr/")
     }
 
+    verifyProtocolAndHostName(){
+        cy.location("protocol").should("eq",'https:')
+        cy.location("hostname").should("eq", "www.amazon.com.tr")
+    }
+
     clickPopupAcceptButton(){
         cy.clickThis(popupAccept)
     }
@@ -28,6 +33,7 @@ export class MainPage {
 
     typeProductName(value){
         cy.typeThis(searchBox, value)
+        cy.wait(1000)
     }
 
     clickSearchButton(){
