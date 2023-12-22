@@ -11,5 +11,5 @@ Cypress.Commands.add('isDisplayed', (element1) => {
   })
 
 Cypress.Commands.add('verifyText', (element1, text) => {
-  return cy.get(element1).scrollIntoView().should("contain", text)
+  return cy.get(element1).scrollIntoView().should("have.text", text)
   })  
