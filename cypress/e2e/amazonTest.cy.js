@@ -7,6 +7,7 @@ const productPage = new ProductPage();
 describe("Amazon test", () => {
   beforeEach(() => {
     mainPage.visitMainUrl()
+    mainPage.verifyUrl("https://www.amazon.com.tr/")
     mainPage.verifyProtocolAndHostName()
     mainPage.clickPopupAcceptButton()
   })

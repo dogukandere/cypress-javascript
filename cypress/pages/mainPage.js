@@ -15,6 +15,10 @@ export class MainPage {
         cy.location("hostname").should("eq", "www.amazon.com.tr")
     }
 
+    verifyUrl(url){
+        cy.url().should("equal", url)
+    }
+
     clickPopupAcceptButton(){
         cy.clickThis(popupAccept)
     }
@@ -31,8 +35,8 @@ export class MainPage {
         cy.isDisplayed(loginButton)
     }
 
-    typeProductName(value){
-        cy.typeThis(searchBox, value)
+    typeProductName(productName){
+        cy.typeThis(searchBox, productName)
         cy.wait(1000)
     }
 

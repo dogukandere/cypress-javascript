@@ -11,7 +11,7 @@ export class ProductPage {
     }
 
     verifySearchedElement(){
-        cy.verifyText(searchedElement, "iphone 15")
+        cy.verifyText(searchedElement, '"iphone 15"')
     }
 
     verifySortByButton(){
