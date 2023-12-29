@@ -1,8 +1,8 @@
 import { MainPage } from "../pages/mainPage"
-import { ProductPage } from "../pages/productPage";
+import { ProductPage } from "../pages/productPage"
 
-const mainPage = new MainPage();
-const productPage = new ProductPage();
+const mainPage = new MainPage
+const productPage = new ProductPage
 
 describe("Amazon test", () => {
   beforeEach(() => {

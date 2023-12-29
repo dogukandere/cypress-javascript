@@ -1,5 +1,5 @@
-const searchedElement = ".a-color-state.a-text-bold";
-const sortByButton = ".a-dropdown-prompt";
+const searchedElement = ".a-color-state.a-text-bold"
+const sortByButton = ".a-dropdown-prompt"
     
 export class ProductPage {
     verifyProductPageUrl(){
